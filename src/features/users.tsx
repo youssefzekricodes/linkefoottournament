@@ -1,11 +1,10 @@
+import { EyeOutlined } from "@ant-design/icons";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Button, Select, Spin, Table, Tag } from "antd";
-import React, { useState } from "react";
-import { axiosInstance } from "../utils/index.axios";
-import Paragraph from "antd/es/typography/Paragraph";
 import Search from "antd/es/transfer/search";
+import Paragraph from "antd/es/typography/Paragraph";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { EyeOutlined } from "@ant-design/icons";
+import { axiosInstance } from "../utils/index.axios";
 
 const UsersList = () => {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const UsersList = () => {
       }),
     queryKey: ["users-list", { searchValue, userType }],
   });
-  const { data: userTypes, isPending: isFetchingUserTypes } = useQuery({
+  const { data: userTypes } = useQuery({
     queryFn: () => getUserTypes(),
     queryKey: ["users-types"],
   });
@@ -32,7 +31,7 @@ const UsersList = () => {
     mutationFn: (id: string) => autoConect(id),
     onSuccess: (res) => {
       const token = res.data.tokens.accessToken;
-      const newParams = {};
+      const newParams: any = {};
       userType && (newParams.userType = userType);
       searchValue && (newParams.searchValue = searchValue);
       setSearchParams({ ...newParams, token });
@@ -41,7 +40,7 @@ const UsersList = () => {
   const dataSource = users?.docs;
 
   const onSearch = (e: any) => {
-    const newParams = { searchValue: e.target.value! };
+    const newParams: any = { searchValue: e.target.value! };
     userType && (newParams.userType = userType);
     setSearchParams(newParams);
   };
@@ -97,7 +96,7 @@ const UsersList = () => {
       title: "action",
       dataIndex: "action",
       key: "action",
-      render: (_, record) => {
+      render: (_: any, record: any) => {
         return (
           <Button
             className="button"
@@ -124,7 +123,7 @@ const UsersList = () => {
             })
           )}
           onChange={(value: any) => {
-            const newParams = {};
+            const newParams: any = {};
             newParams.userType = value! || "";
             searchValue && (newParams.searchValue = searchValue);
             setSearchParams(newParams);

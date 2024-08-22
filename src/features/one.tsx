@@ -1,11 +1,9 @@
-import React from "react";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { Button, Spin, message } from "antd";
+import axios from "axios";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { axiosInstance } from "../utils/index.axios";
-import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
-import { Spin, message } from "antd";
-import { Button } from "antd";
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import axios from "axios";
 
 const OnePlayerPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,10 +51,10 @@ const OnePlayerPage = () => {
           className="button"
           onClick={() => {
             navigate("/");
-            const newParams = {};
+            const newParams: any = {}; // Add 'userType' property with type string or null
             userType && (newParams.userType = userType);
             searchValue && (newParams.searchValue = searchValue);
-            setSearchParams({ ...newParams });
+            setSearchParams(newParams);
           }}
         >
           <ArrowLeftOutlined /> Go back
