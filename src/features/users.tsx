@@ -135,8 +135,7 @@ const UsersList = () => {
         <Search
           placeholder="input search text"
           onChange={onSearch}
-          style={{ width: 100 }}
-          value={searchValue}
+          value={searchValue!}
         />
 
         <Paragraph copyable={{ text: "12345678@Aa" }}>
@@ -146,7 +145,11 @@ const UsersList = () => {
       {isPending ? (
         <Spin />
       ) : (
-        <Table dataSource={dataSource} columns={columns} pagination={false} />
+        <Table
+          dataSource={dataSource}
+          columns={columns as any}
+          pagination={false}
+        />
       )}
     </div>
   );
