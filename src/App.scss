@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Matemasie&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: "Ubuntu";
+}
+
+.app {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: 100vh;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  &__avatar {
+    max-width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.user-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  height: 100vh;
+  gap: 1rem;
+  &__select {
+    width: 10rem;
+    margin-bottom: 2rem;
+  }
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+  }
+}
+
+.one-user {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1rem;
+  &__image {
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__name {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  &__button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}
+
+.button {
+  background-color: #36c853;
+  cursor: pointer;
+  color: white !important;
+  &:hover {
+    background-color: #36c895f1 !important;
+    scale: 1.1;
+  }
+}
+
+.tournament-card {
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 24rem;
+  height: 8rem;
+  background-size: cover;
+  background-position: top;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.417);
+  font-size: 1.6rem;
+  font-weight: bold;
+  white-space: nowrap;
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+  }
+  &__tr-name {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(4px);
+  }
+}
