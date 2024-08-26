@@ -5,10 +5,12 @@ import Search from "antd/es/transfer/search";
 import Paragraph from "antd/es/typography/Paragraph";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { axiosInstance } from "../utils/index.axios";
+import AvatarDefault from "./avatar";
 
 const UsersList = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+
   const searchValue = searchParams.get("searchValue") || null;
   const userType = searchParams.get("userType") || null;
 
@@ -54,11 +56,10 @@ const UsersList = () => {
         _: any,
         record: { profilePicUrl: string | undefined; userName: any; name: any }
       ) => {
+        console.log({ record });
         return (
           <div className="user">
-            <div className="user__avatar">
-              <img src={record?.profilePicUrl} alt="user" />
-            </div>
+            <AvatarDefault profilePicUrl={record.profilePicUrl} />
             <Paragraph copyable={{ text: record.userName || record.name }}>
               {record.userName || record.name}
             </Paragraph>
