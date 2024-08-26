@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import defaultavatar from "../assets/default.png";
 const AvatarDefault = ({ profilePicUrl }: any) => {
   const [error, setError] = useState(false);
