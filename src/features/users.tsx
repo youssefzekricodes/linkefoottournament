@@ -13,8 +13,12 @@ const UsersList = () => {
 
   const searchValue = searchParams.get("searchValue") || null;
   const userType = searchParams.get("userType") || null;
-
-  const { data: users, isPending } = useQuery({
+  const hasToken = !!localStorage.getItem("token");
+  const {
+    data: users,
+    isPending,
+    isError,
+  } = useQuery({
     queryFn: () =>
       getusers({
         page: 1,
@@ -23,6 +27,7 @@ const UsersList = () => {
         search: searchValue!,
       }),
     queryKey: ["users-list", { searchValue, userType }],
+    enabled: hasToken,
   });
   const { data: userTypes } = useQuery({
     queryFn: () => getUserTypes(),
@@ -112,6 +117,14 @@ const UsersList = () => {
       },
     },
   ];
+  if (isError || !hasToken) {
+    return (
+      <div className="page-404">
+        need to login ... 🫠
+        <Button onClick={() => location.reload()}>Refresh 🔄</Button>
+      </div>
+    );
+  }
   return (
     <div className="user-list">
       <div className="user-list__header">

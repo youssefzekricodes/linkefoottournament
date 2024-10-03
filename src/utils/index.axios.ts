@@ -1,8 +1,9 @@
 import axios from "axios";
 
+const token = localStorage.getItem("token");
 const headers = {
   Accept: "application/json",
-  Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJpc3MiOiJzb2Z0eWxpbmVzLmNvbSIsImF1ZCI6InNvZnR5bGluZXMuY29tIiwic3ViIjoiNjU5ZmEzYzdlZTE3NGY0N2E1NGM2MzcwIiwiaWF0IjoxNzI0MTY0NDExLCJleHAiOjE3MjY3NTY0MTEsInBybSI6Ijk1ZjEzZWQ1OWU3YTI5YTJkOWQ5NTJmZDk0NzVhZTUwMDcyNmE1MDU5MGEzNzQ2YzIyNzVmZThiN2FmMzVkZDc5NTZhNGQzMzQxZDk4MGVhMGFhMWFmYmM3YjYzMWY5YjkwMjVlODRjYjQyMDVkZWIwZTljNjhhYzBiODU4YTAyIn0.O5YTyU_JgVCUwgxzcBhxPPxnWbepH6yzR2C4wwS18IR5ZXA51QUQEM0v8ryr9NqXc2yqWldYmNRYWziOXdqJVa8VbjnbTxIcRLgW8A2CDLZtnuexy9GZ6_OM42gEP9d26UO2VYLwoRUIB7tBXKPORBen2VrCr1g90n248VhZsnitomZH75rCVFSxI3KT1-n4kW29C9vj0IlKlE-rI23wDDP7Nl7CNkcM5ripAh18ETxNfEQ6jA1H4O3rB93UJF7GoT631v4sEXUA4Wm5yjiEelotaBmRA9Ik9sIHH-UJMJ-feWxrOcwrHzpG_FT-NxraX-sLAlu6nxHE87EnISmqNw`,
+  Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
 };
 
